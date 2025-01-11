@@ -87,6 +87,7 @@ $(wildcard test-*.c) :: %.c : test-random.h
 $(patsubst %.c,%,$(wildcard test-*.c)) :: | test-random.h
 $(patsubst %.c,%.o,$(wildcard test-*.c)) : | test-random.h
 
+CFLAGS += -DGNU_EFI_USE_COMPAREGUID_ABI=0
 test-load-options_FILES = lib/guid.c
 test-load-options : CFLAGS+=-DHAVE_SHIM_LOCK_GUID
 
